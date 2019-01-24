@@ -1,0 +1,20 @@
+<% include partials/header.ejs %>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 mt-5 show-area">
+				<h4><strong>Type: </strong><%= task.type %></h6>
+				<h4><strong>Name: </strong><%= task.name %></h6>
+				<p><strong>Description: </strong><%= task.description %></p>
+
+				<form>
+					<div class="form-group">
+						<label for='comment_textarea'>How was this task:</label>
+						<textarea class='form-control' id='comment_textarea'></textarea>	
+					</div>
+				</form>		
+			</div>
+		</div>
+	</div>
+
+<% include partials/footer.ejs %>
