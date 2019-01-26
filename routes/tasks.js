@@ -8,9 +8,9 @@ var express = require('express'),
 	Task = require('../models/task'),
 	User = require('../models/user'),
 	Day = require('../models/day'),
-	taskEntity = require('../entities/taskEntity'),
-	dayEntity = require('../entities/dayEntity'),
-	dataEmbedder = require('../entities/dataEmbedder'),
+	taskEntity = require('../services/taskHandler'),
+	dayEntity = require('../services/dayHandler'),
+	dataEmbedder = require('../services/dataEmbedder'),
 	userData = [];
 
 
@@ -44,7 +44,7 @@ router.get('/activities', function(req, res){
 router.post('/create', isLoggedIn , function(req , res){
 	console.log('Just received a post request on create route!');
 	//CREATE NEW Task
-	dataEmbedder.embedTaskIntoDay(req.body.taskType , req.body.taskName , req.bodyTaskDescription , req.user);
+	dataEmbedder.embedTaskIntoDay(req.body.taskType , req.body.taskName , req.body.taskDescription , req.user);
 	
 });
 

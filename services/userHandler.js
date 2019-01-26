@@ -1,7 +1,7 @@
 var mongoose = require('mongoose'),
 	passport = require('passport'),
 	User = require('../models/user'),
-	dayEntity = require('../entities/dayEntity');
+	dayEntity = require('../services/dayHandler');
 
 
 

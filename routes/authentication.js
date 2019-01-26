@@ -1,7 +1,7 @@
 var express = require('express'),
 	router = express.Router(),
 	passport = require('passport'),
-	userEntity = require('../entities/userEntity'),
+	userEntity = require('../services/userHandler'),
 	User = require('../models/user');
 
 

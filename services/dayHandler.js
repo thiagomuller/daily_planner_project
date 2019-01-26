@@ -2,20 +2,21 @@ var express = require('express'),
 	mongoose = require('mongoose'),
 	Day = require('../models/day'),
 	Task = require('../models/task'),_
-	taskEntity = require('../entities/taskEntity');
+	taskEntity = require('../services/taskHandler');
 
 
-var date = new Date(),
-	day = {
-		d : date.getDate(),
-		m : date.getMonth() + 1,
-		y : date.getFullYear()
-	}
+
 
 
 
 function createDay(data){
 	var createDayPromise = new Promise(function(createDayFinished , reject){
+		var date = new Date(),
+			day = {
+				d : date.getDate(),
+				m : date.getMonth() + 1,
+				y : date.getFullYear()
+			};
 		Day.create({
 			day : day.d,
 			month : day.m,
@@ -45,11 +46,18 @@ function createDay(data){
 function findDay(data){
 
 	var findDayPromise = new Promise(function(dayFindFinished , reject){
+		var date = new Date(),
+			day = {
+				d : date.getDate(),
+				m : date.getMonth() + 1,
+				y : date.getFullYear()
+			};
 		Day.findOne({
 		day : day.d,
 		month : day.m,
 		year : day.y
 		}, function(err , foundDay){
+			data.today = day;
 			if(err){
 				console.log('Error when trying to search for day on db!');
 				console.log(err);
@@ -84,5 +92,4 @@ function findDay(data){
 module.exports = {
 	findDay : findDay,
 	createDay : createDay,
-	day : day
 }

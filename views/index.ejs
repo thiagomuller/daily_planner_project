@@ -11,20 +11,6 @@
 				<button type='button' class='btn btn-primary btn-lg' data-toggle='modal' data-target='#create_task'>Create a new task for the day!</button>
 			</div>
 		</div>
-		<div class="row mt-5">
-			<% if(user) {%>
-				<% user.day.forEach(function(userDay){ %>
-					<div class="col-sm-3">
-						<div class="card bg-dark text-white">
-						  <h5 class="card-header"><%=userDay.day%>/ <%= userDay.month %>/ <%= userDay.year %></h5>
-						  <div class="card-body">
-						    <a href="/day/<%= day._id %>" class="btn btn-success">More</a>
-						  </div>
-						</div>
-					</div>		
-				<% })%>
-			<% } %>
-		</div>	
 	</div>
 	
 
